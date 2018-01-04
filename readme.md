@@ -1,14 +1,6 @@
----
-title: "The Effects of Biotin on Hair"
-author: "Kory Becker"
-date: "January 4, 2018"
-output:
-  html_document:
-    self_contained: true
-    keep_md: true
----
+# Analysis of Biotin on Hair
 
-
+#### Kory Becker - January 4, 2018
 
 ## Synopsis
 
