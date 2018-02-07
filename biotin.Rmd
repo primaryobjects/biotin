@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This document is an analysis of the effects of the supplement [biotin](https://en.wikipedia.org/wiki/Biotin) (vitamin B7, also known as vitamin H or coenzyme R) on human hair.
 
-The analysis includes a data-set of 50 measurements of human hair shedding counts while taking a daily dosage of the supplement biotin. The results show a distinct reduction in hair shedding over the time-period of the study. The maximum and average shedding counts per three-day period were reduced, with a total average reduction of 50%. Additionally, it was noted that the condition and quality of finger nails had strengthened.
+The analysis includes a data-set of 60 measurements of human hair shedding counts while taking a daily dosage of the supplement biotin. The results show a distinct reduction in hair shedding over the time-period of the study. The maximum and average shedding counts per three-day period were reduced, with a total average reduction of 50%. Additionally, it was noted that the condition and quality of finger nails had strengthened.
 
 ## Background
 
@@ -81,7 +81,7 @@ g <- g + geom_smooth(method = "lm")
 print(g)
 ```
 
-*Figure 1. Visualizing shedding counts while using a daily vitamin supplementation of 300 mcg of biotin. The count of shedding during each recorded sampling decreases by 9.5 every 3 days.* 
+*Figure 1. Visualizing shedding counts while using a daily vitamin supplementation of 300 mcg of biotin. The count of shedding during each recorded sampling decreases by 9.5 every 3 days.*
 
 ```{r}
 # Calculate a linear regression model.
@@ -110,11 +110,11 @@ g <- g + theme(plot.title = element_text(size=18, face="bold", hjust=0.5), axis.
 g <- g + xlab('Date')
 g <- g + ylab('Count')
 g <- g + scale_color_manual(values=c('red', 'green'))
-g <- g + guides(color=guide_legend(title="Hair Loss")) 
+g <- g + guides(color=guide_legend(title="Hair Loss"))
 print(g)
 ```
 
-*Figure 2. An initial increase in shedding occurred during the first 31 days of biotin supplementation. After this initial period, shedding began decreasing over time.* 
+*Figure 2. An initial increase in shedding occurred during the first 31 days of biotin supplementation. After this initial period, shedding began decreasing over time.*
 
 As the above graph displays, we can see an initial increase in shedding counts for the first 31 days of biotin supplementation. After this period, shedding decreases, continuing throughout biotin supplementation. The minimum recorded count is `r minData$count`, recorded on `r format(minData$date, '%m/%d/%Y')`, `r as.numeric(max(data$date) - minData$date + 1)` days prior to the end of the recorded data.
 

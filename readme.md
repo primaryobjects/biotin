@@ -6,7 +6,7 @@
 
 This document is an analysis of the effects of the supplement [biotin](https://en.wikipedia.org/wiki/Biotin) (vitamin B7, also known as vitamin H or coenzyme R) on human hair.
 
-The analysis includes a data-set of 50 measurements of human hair shedding counts while taking a daily dosage of the supplement biotin. The results show a distinct reduction in hair shedding over the time-period of the study. The maximum and average shedding counts per three-day period were reduced, with a total average reduction of 50%. Additionally, it was noted that the condition and quality of finger nails had strengthened.
+The analysis includes a data-set of 60 measurements of human hair shedding counts while taking a daily dosage of the supplement biotin. The results show a distinct reduction in hair shedding over the time-period of the study. The maximum and average shedding counts per three-day period were reduced, with a total average reduction of 50%. Additionally, it was noted that the condition and quality of finger nails had strengthened.
 
 ## Background
 
