@@ -214,7 +214,7 @@ In addition to the recorded data, it was also noted that the hair strands became
 
 ## Conclusion
 
-Through the analysis of the hair shedding data, we can see a notable decrease in shedding over the recording period while taking biotin. There was an initial increase in shedding during the first 31 days of biotin supplementation, resulting in an average count during this initial period of `r round(period1Mean)` Shedding decreased over time following this period, resulting in an average count of `r round(period2Mean)` during the subsequent period. The maximum count of `r maxData$count` was recorded 31 days into the study. The minimum count of `r minData$count` was recorded `r as.numeric(max(data$date) - minData$date + 1)` days prior to the end of the study.
+Through the analysis of the hair shedding data, we can see a notable decrease in shedding over the recording period while taking biotin. There was an initial increase in shedding during the first 31 days of biotin supplementation, resulting in an average count during this initial period of `r round(period1Mean)`. Shedding decreased over time following this period, resulting in an average count of `r round(period2Mean)` during the subsequent period. The maximum count of `r maxData$count` was recorded 31 days into the study. The minimum count of `r minData$count` was recorded `r as.numeric(max(data$date) - minData$date + 1)` days prior to the end of the study. A total mean reduction of shedding by `r totalReductionPercent` was achieved by the end of the study.
 
 ```{r, echo=F}
 library(ggplot2)

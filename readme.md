@@ -166,7 +166,7 @@ In addition to the recorded data, it was also noted that the hair strands became
 
 ## Conclusion
 
-Through the analysis of the hair shedding data, we can see a notable decrease in shedding over the recording period while taking biotin. There was an initial increase in shedding during the first 31 days of biotin supplementation, resulting in an average count during this initial period of 114 Shedding decreased over time following this period, resulting in an average count of 58 during the subsequent period. The maximum count of 152 was recorded 31 days into the study. The minimum count of 32 was recorded 74 days prior to the end of the study.
+Through the analysis of the hair shedding data, we can see a notable decrease in shedding over the recording period while taking biotin. There was an initial increase in shedding during the first 31 days of biotin supplementation, resulting in an average count during this initial period of 114. Shedding decreased over time following this period, resulting in an average count of 58 during the subsequent period. The maximum count of 152 was recorded 31 days into the study. The minimum count of 32 was recorded 74 days prior to the end of the study. A total mean reduction of shedding by 50% was achieved by the end of the study.
 
 ![](biotin_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
