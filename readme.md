@@ -26,8 +26,9 @@ data <- read.csv('data.tsv', sep='\t', header = F, row.names = NULL, stringsAsFa
 # Set column names.
 names(data) <- c('date', 'count', 'comment')
 
-# Set date column.
+# Set date and month column.
 data$date <- as.Date(data$date, '%m/%d/%Y')
+data$month <- factor(format(data$date, format = "%B"), levels = month.name)
 
 startDate <- as.Date('8/17/2017', '%m/%d/%Y')
 
@@ -43,13 +44,14 @@ We can view a general summary of hair shedding counts, including the minimum, ma
 
 
 ```
-##       date                count          comment
-##  Min.   :2017-08-17   Min.   : 32.00   Length:56
-##  1st Qu.:2017-09-27   1st Qu.: 47.00   Class :character
-##  Median :2017-11-07   Median : 59.00   Mode  :character
-##  Mean   :2017-11-08   Mean   : 68.66
-##  3rd Qu.:2017-12-19   3rd Qu.: 82.75
-##  Max.   :2018-02-02   Max.   :152.00
+##       date                count          comment                month
+##  Min.   :2017-08-17   Min.   : 32.00   Length:56          October  :11
+##  1st Qu.:2017-09-27   1st Qu.: 47.00   Class :character   September:10
+##  Median :2017-11-07   Median : 59.00   Mode  :character   November :10
+##  Mean   :2017-11-08   Mean   : 68.66                      December :10
+##  3rd Qu.:2017-12-19   3rd Qu.: 82.75                      January  : 9
+##  Max.   :2018-02-02   Max.   :152.00                      August   : 5
+##                                                           (Other)  : 1
 ```
 
 
@@ -62,15 +64,27 @@ We can visualize the data with regard to hair shedding counts over time by plott
 
 ![](biotin_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
-*Figure 1. Visualizing shedding counts while using a daily vitamin supplementation of 300 mcg of biotin. The count of shedding during each recorded sampling decreases by 9.5 every 3 days.*
+*Figure 1. Visualizing shedding counts while using a daily vitamin supplementation of 300 mcg of biotin. The count of shedding during each recorded sampling has a notable decreasing trend-line over each 3 day period.*
 
 
 ```r
 # Calculate a linear regression model.
-fit <- lm(count ~ date, data)
+fit <- lm(count ~ month, data)
+summary(fit)$coefficients
 ```
 
-We can examine a linear regression model of the data by calculating the count by date. The result is a decrease of shedding by 9.5 per 3-day period over the time of biotin supplementation.
+```
+##                 Estimate Std. Error    t value     Pr(>|t|)
+## (Intercept)    49.333333   4.826469 10.2214126 9.681706e-14
+## monthFebruary  -9.333333  15.262636 -0.6115152 5.436855e-01
+## monthAugust    58.466667   8.076228  7.2393534 2.827050e-09
+## monthSeptember 59.466667   6.652829  8.9385537 7.281074e-12
+## monthOctober   20.575758   6.508010  3.1616052 2.691390e-03
+## monthNovember  -3.533333   6.652829 -0.5311024 5.977471e-01
+## monthDecember   1.366667   6.652829  0.2054264 8.380900e-01
+```
+
+We can examine a linear regression model of the data by calculating the count by month. The resulting model provides the mean difference in hair shedding counts on a monthly basis over the time of biotin supplementation. We can see that during the first month of August, the hair shedding count is greatest, with a mean value of 58. This continues into September with a mean value of 59. October begins the first significant decrease in hair shedding count, with a mean value of 21. From November through the remaining months in the recorded data, mean hair shedding counts begin to stabalaize with values of -4, 1, and -9.
 
 ## An Initial Increase Upon Starting Biotin
 

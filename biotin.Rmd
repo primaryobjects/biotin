@@ -35,8 +35,9 @@ data <- read.csv('data.tsv', sep='\t', header = F, row.names = NULL, stringsAsFa
 # Set column names.
 names(data) <- c('date', 'count', 'comment')
 
-# Set date column.
+# Set date and month column.
 data$date <- as.Date(data$date, '%m/%d/%Y')
+data$month <- factor(format(data$date, format = "%B"), levels = month.name)
 
 startDate <- as.Date('8/17/2017', '%m/%d/%Y')
 
@@ -82,14 +83,15 @@ g <- g + scale_x_date(date_labels = "%b %Y", date_breaks = "1 month")
 print(g)
 ```
 
-*Figure 1. Visualizing shedding counts while using a daily vitamin supplementation of 300 mcg of biotin. The count of shedding during each recorded sampling decreases by 9.5 every 3 days.*
+*Figure 1. Visualizing shedding counts while using a daily vitamin supplementation of 300 mcg of biotin. The count of shedding during each recorded sampling has a notable decreasing trend-line over each 3 day period.*
 
 ```{r}
 # Calculate a linear regression model.
-fit <- lm(count ~ date, data)
+fit <- lm(count ~ month, data)
+summary(fit)$coefficients
 ```
 
-We can examine a linear regression model of the data by calculating the count by date. The result is a decrease of shedding by `r round(summary(fit)$coefficients['date',]['t value'], 2)` per 3-day period over the time of biotin supplementation.
+We can examine a linear regression model of the data by calculating the count by month. The resulting model provides the mean difference in hair shedding counts on a monthly basis over the time of biotin supplementation. We can see that during the first month of August, the hair shedding count is greatest, with a mean value of `r round(summary(fit)$coefficients[3])`. This continues into September with a mean value of `r round(summary(fit)$coefficients[4])`. October begins the first significant decrease in hair shedding count, with a mean value of `r round(summary(fit)$coefficients[5])`. From November through the remaining months in the recorded data, mean hair shedding counts begin to stabalaize with values of `r round(summary(fit)$coefficients[6])`, `r round(summary(fit)$coefficients[7])`, and `r round(summary(fit)$coefficients[2])`.
 
 ## An Initial Increase Upon Starting Biotin
 
