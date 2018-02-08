@@ -1,6 +1,6 @@
 # Analysis of Biotin on Hair
 
-#### Kory Becker - February 7, 2018
+#### Kory Becker - February 8, 2018
 
 ## Synopsis
 

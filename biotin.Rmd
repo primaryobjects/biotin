@@ -78,6 +78,7 @@ g <- g + xlab('Date')
 g <- g + ylab('Count')
 g <- g + theme(legend.title=element_blank())
 g <- g + geom_smooth(method = "lm")
+g <- g + scale_x_date(date_labels = "%b %Y", date_breaks = "1 month")
 print(g)
 ```
 
@@ -88,7 +89,7 @@ print(g)
 fit <- lm(count ~ date, data)
 ```
 
-We can examine a linear regression model of the data by calculating the count by date. The result is a decrease of shedding by 9.5 per 3-day period over the time of biotin supplementation.
+We can examine a linear regression model of the data by calculating the count by date. The result is a decrease of shedding by `r round(summary(fit)$coefficients['date',]['t value'], 2)` per 3-day period over the time of biotin supplementation.
 
 ## An Initial Increase Upon Starting Biotin
 
@@ -110,6 +111,7 @@ g <- g + theme(plot.title = element_text(size=18, face="bold", hjust=0.5), axis.
 g <- g + xlab('Date')
 g <- g + ylab('Count')
 g <- g + scale_color_manual(values=c('red', 'green'))
+g <- g + scale_x_date(date_labels = "%b %Y", date_breaks = "1 month")
 g <- g + guides(color=guide_legend(title="Hair Loss"))
 print(g)
 ```
